@@ -1,5 +1,5 @@
 {
-  "name": "AppIonicV2",
+  "name": "Menu",
   "version": "0.0.0",
   "dependencies": {
     "angular": "~1.2.12",

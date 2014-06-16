@@ -25,7 +25,7 @@ module.exports = function (grunt) {
       styles: 'styles',
       images: 'images'
     },
-
+    
     jade: {
         dist: {
             options: {
@@ -40,12 +40,12 @@ module.exports = function (grunt) {
             }]
         }
     },
-    
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       jade: {
-          files: ['<%= yeoman.app %>/{,*/}*.jade'],
-          tasks: ['jade']
+        files: ['<%= yeoman.app %>/{,*/}*.jade'],
+        tasks: ['jade']
       },
       js: {
         files: ['<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js'],
@@ -111,8 +111,8 @@ module.exports = function (grunt) {
         reporter: require('jshint-stylish')
       },
       all: [
-        //'Gruntfile.js',
-        //'<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js'
+        'Gruntfile.js',
+        '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js'
       ],
       test: {
         options: {

@@ -7,21 +7,22 @@ html
             | Demo Menu Digital v2
 
         //build:css styles/vendor.css
-        link(rel='stylesheet', href='bower_components/ionic/release/css/ionic.css')
         //bower:css
+        link(rel='stylesheet', href='bower_components/ionic/release/css/ionic.css')
         //endbower
         //endbuild
 
         //build:css({.tmp,app}) styles/main.css
         link(rel='stylesheet', href='styles/main.css')
         //endbuild
-
-    body(ng-app='Menu', animation='slide-left-right-ios7')
-        ion-pane
-            ion-header-bar(class='bar-stable')
-                h1(class='title') Ionic Blank Starter
-
-            ion-content(class='has-header')
+        
+    body(ng-app='Menu')
+        ion-nav-bar.bar-energized.nav-title-slide-ios7
+            ion-nav-back-button.button-icon.icon.ion-chevron-left
+            //    | Atrás
+            //h1.title
+            
+        ion-nav-view
 
         //build:js scripts/vendor.js
         //bower:js
@@ -33,9 +34,11 @@ html
         script(src='bower_components/ionic/release/js/ionic-angular.js')
         //endbower
         //endbuild
-    
+
         //build:js({.tmp,app}) scripts/scripts.js
         script(src='scripts/app.js')
+        script(src='scripts/controllers.js')
+        //script(src='scripts/services.js')
         //endbuild
 
         //cordova script (this will be a 404 during development)
