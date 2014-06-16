@@ -1,0 +1,28 @@
+ion-view.main(hide-back-button='true', title='Seleccione función')
+    ion-content(padding='true')
+        br
+        br
+        
+        .row.row-center.responsive-md
+            .col.col-50.col-offset-25.col-center.padding
+                ion-list.list-inset
+                    label.item.item-input
+                        input(name='userId', type='text', placeholder='Id de usuario', ng-model='userId')
+                    
+                    br
+                    br
+                    
+                    button.button.button-block.button-dark.button-outline(ng-click='loginClick()')
+                        | Ingresar
+        
+        
+    //
+        .row.row-center.responsive-md
+            .col.col-50.col-center.padding
+                ion-list
+                    ion-item.item-input-inset
+                        label.item-input-wrapper
+                            input(type='number', placeholder='id')
+            .col.col-50.col-center.padding
+                a.button.button-dark.button-block.button-large.button-outline
+                    | Ingresar

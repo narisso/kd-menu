@@ -27,3 +27,5 @@ node_modules
 /app-ionic-v2/.bowerrc
 /app-ionic-v2/.editorconfig
 /app-ionic-v2/.settings/org.eclipse.core.resources.prefs
+/app-ionic-v3/.project
+/app-ionic-v3/.settings/org.eclipse.core.resources.prefs
