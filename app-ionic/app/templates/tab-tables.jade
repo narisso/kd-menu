@@ -1,0 +1,7 @@
+ion-view(title='Mesas')
+    ion-content.has-header.padding
+        ion-list
+            ion-item(ng-repeat='t in tables', href='#/tab/tables/{{t.id}}')
+                | Mesa {{t.id}}
+                span.balanced-bg.balanced-border(ng-show='t.status', style='float: right;width: 20px;height: 20px;border-width: 1px;border-style: solid;border-radius: 4px;')
+                span.assertive-bg.assertive-border(ng-show='!t.status', style='float: right;width: 20px;height: 20px;border-width: 1px;border-style: solid;border-radius: 4px;')

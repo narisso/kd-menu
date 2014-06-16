@@ -1,0 +1,19 @@
+ion-view(title="Nueva Orden")
+    ion-content.has-header.padding
+        ion-list
+            ion-item.item-input
+                i.icon.ion-search.placeholder-icon
+                input(type='text', placeholder='Buscar')
+                
+            div(ng-repeat='p in products')    
+                ion-item.item-divider(ng-show='CreateHeader(p.cat)')
+                    | {{ p.cat }}
+                ion-checkbox(type="item-text-wrap")
+                    | {{p.name}}
+        
+        br
+        br
+        a.button.button-large.button-outline.button-block.button-positive(href='#/tab/newOrder/confirm')
+            | Ingresar pedido
+        br
+        br

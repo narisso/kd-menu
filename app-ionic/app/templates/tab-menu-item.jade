@@ -1,0 +1,12 @@
+ion-view(title='{{item.name}}')
+    ion-content.has-header.padding
+        ion-list
+            ion-item.item-avatar
+                h2 {{item.name}}
+                p {{item.desc}}
+                
+            ion-item.item-image
+                img(src="images/menu/{{ item.img[0] }}", ng-show='!!item.img[0]', style='max-height: 400px; max-width: 400px; margin: 20px;')
+            ion-item.item-divider
+                span.item-note
+                    | $ {{ item.precio }}

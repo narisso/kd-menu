@@ -1,0 +1,41 @@
+ion-view(title='Mesa {{table.id}}')
+    ion-content.has-header.padding
+        ion-list.card
+            ion-item.item-avatar
+                h2 Mesa {{table.id}}
+            ion-item.item-body
+                div(ng-show='!!table.status')
+                    ion-card
+                        label.item.item-input.item-stacked-label
+                            span.input-label
+                                | Tallarines a la Bolognesa
+                            p 
+                        
+                        label.item.item-input.item-stacked-label
+                            span.input-label
+                                | Filete a lo Pobre
+                            p a punto
+                        
+                        label.item.item-input.item-stacked-label
+                            span.input-label
+                                | Coca-Cola Light
+                            p sin hielo  
+                            
+                        label.item.item-input.item-stacked-label
+                            span.input-label
+                                | Schop Kunstmann Torobayo
+                        
+                        br
+                        
+                        a.button.button-positive(href='#/tab/tables/pay/{{table.id}}')
+                            | Pagar con Banco de Chile
+                        
+                        button.button.button-energized
+                            | Editar Pedido
+                        
+                        button.button.button-assertive
+                            | Eliminar Pedido
+                            
+                        
+                div(ng-show='!!!table.status')
+                    | Mesa no tiene pedido

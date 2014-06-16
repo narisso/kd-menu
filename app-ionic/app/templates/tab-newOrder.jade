@@ -1,0 +1,23 @@
+ion-view(title="Nueva Orden")
+    ion-content.has-header.padding
+        ion-list
+            ion-item.item-input
+                span.input-label
+                    | Código Mesero
+                input(type='number', required="")
+            
+            ion-item.item-input
+                span.input-label
+                    | Código Mesa
+                input(type='number', required="")    
+        
+        br
+        br
+        ion-list
+            ion-item
+                a.button.button-block.button-stable(href='#/tab/newOrder/take')
+                    | Tomar pedido
+            .item-divider
+            ion-item
+                a.button.button-block.button-stable(href='#/tab/newOrder/take')
+                    | Pasar menú
