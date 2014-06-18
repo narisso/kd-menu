@@ -1,0 +1,5 @@
+ion-view.product(title='{{ p.name }}')
+    ion-content
+        ion-slide-box
+            ion-slide(ng-repeat='i in p.img') 
+                img(src='images/menu/{{ i }}')

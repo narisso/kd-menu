@@ -1,0 +1,38 @@
+ion-nav-buttons(side='right')
+    button.button(ng-click='blockScreen()')
+        | Bloquear
+
+ion-view.newOrder(title='Nueva orden')
+    ion-content
+        ion-list
+            ion-item.item-input
+                i.icon.ion-search.placeholder-icon
+                input(type='text', placeholder='Buscar')
+                
+            div(ng-repeat='p in table.order', ng-init='initProduct(p)')    
+                ion-item.item-divider(ng-show='CreateHeader(p.cat)')
+                    | {{ p.cat }}
+                //, ng-init='showOrder = false'
+                ion-checkbox.product(type='item-text-wrap', ng-model='p.order', ng-click='$log.log(p.order)')
+                    img.picture(src='images/menu/{{ p.img[0] }}', ng-show='!!p.img[0]')
+                    h2.title {{ p.name }}
+                    p.desc {{ p.desc }}
+                    .price {{ p.price | priceFilter : '$' }}
+                    .more.enable-pointer-events(ng-click='productDetails({{ p.id }})')
+                        i.icon.ion-chevron-right
+                    
+                ion-item.order-product(ng-show='p.order')
+                    .quantity
+                        button.quantity-button.button.button-small.icon.ion-minus-round.button-assertive(ng-click='p.qty = p.qty - 1 > 0 ? p.qty - 1 : 0; p.order = p.qty !== 0; ')
+                        input.quantity-number.disable-pointer-events(type='number', value='1', ng-model='p.qty')
+                        button.quantity-button.button.button-small.button-balanced(ng-click='p.qty = p.qty + 1')
+                            i.icon.ion-plus-round
+                    
+                    .details(ng-show='p.order')
+                        textarea(placeholder='Comentarios', ng-model='p.comment')
+                        
+ion-footer-bar.bar-stable
+    button.button.button-assertive(ng-click='cancelOrder()')
+        | Cancelar
+    button.button.button-balanced(ng-click='placeOrder()')
+        | Generar orden

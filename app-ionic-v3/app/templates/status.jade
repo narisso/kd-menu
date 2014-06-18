@@ -1,0 +1,9 @@
+ion-view.status(hide-back-button='true', title='Estado de mesas')
+    ion-content
+        ion-list
+            ion-item.item-button-right(ng-repeat='t in tables')
+                span.table-item.circle.balanced-bg.balanced-border(ng-show='t.order')
+                span.table-item.circle.assertive-bg.assertive-border(ng-show='!t.order')
+                span.table-item Mesa {{t.id}}
+                
+                button.button.button-small.icon.ion-plus-round.button-energized.button-outline(ng-click='newOrder({{ t.id }})')

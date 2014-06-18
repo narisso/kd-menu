@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.Menu" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Menu</name>
+<widget id="kunder.menu.app" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Menu App - Demo Bco Chile</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Aplicación demo de Menu
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="contacto@kunder.cl" href="http://kunder.cl">
+        kunder SpA
     </author>
     <content src="index.html" />
     <access origin="*" />
