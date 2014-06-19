@@ -4,12 +4,15 @@ ion-view.orderStatus(title='Resumen')
       ion-item.item.item-thumbnail-left(ng-repeat='p in table.order | filter: { order: true }')
           img.picture(ng-src="images/menu/{{ p.img[0] }}")
           {{ p.name }}
+    div.card
+      
 
 
 ion-footer-bar.bar-stable
+
   button.button.button-assertive(ng-click='cancelOrder()')
     | Cancelar
 
-  button.button.button-energized(ng-click='placeOrder()')
-    | Generar orden
+  button.button.button-balanced(ng-click='scanClick()')
+    | Pagar BCH
     
