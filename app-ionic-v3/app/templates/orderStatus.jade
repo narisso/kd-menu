@@ -2,6 +2,14 @@ ion-view.orderStatus(title='Resumen')
   ion-content
     div.card
       ion-item.item.item-thumbnail-left(ng-repeat='p in table.order | filter: { order: true }')
-        img.picture(src="images/menu/{{ p.img[0] }}")
+          img.picture(ng-src="images/menu/{{ p.img[0] }}")
           {{ p.name }}
-        
+
+
+ion-footer-bar.bar-stable
+  button.button.button-assertive(ng-click='cancelOrder()')
+    | Cancelar
+
+  button.button.button-energized(ng-click='placeOrder()')
+    | Generar orden
+    

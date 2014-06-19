@@ -15,7 +15,7 @@ ion-view.newOrder(title='Nueva orden')
                 //, ng-init='showOrder = false'
                 ion-checkbox.product(type='item-text-wrap', ng-model='p.order', ng-click='$log.log(p.order)')
                     .price {{ p.price | priceFilter : '$' }}
-                    img.picture(src='images/menu/{{ p.img[0] }}', ng-show='!!p.img[0]')
+                    img.picture(ng-src='images/menu/{{ p.img[0] }}', ng-show='!!p.img[0]')
                     h2.title {{ p.name }}
                     p.desc {{ p.desc }}
                     
