@@ -1,6 +1,13 @@
 ion-view.orderStatus(title='Resumen')
   ion-content
     div.card
+      ion-item.item-divider
+        .row
+          .col.col-50
+            | Producto
+          .col.col-50.right-header
+            | Precio
+
       ion-item.item.item-thumbnail-left(ng-repeat='p in table.order | filter: { order: true }')
           img.picture(ng-src="images/menu/{{ p.img[0] }}")
           span.item-note.price
@@ -12,10 +19,6 @@ ion-view.orderStatus(title='Resumen')
           | Total
           span.item-note.price
             {{ getTotal() | priceFilter : '$' }}
-
-
-
-
 
 ion-footer-bar.bar-stable
   button.button.button-assertive(ng-click='goBack()')
