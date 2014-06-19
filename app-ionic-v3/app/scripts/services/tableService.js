@@ -7,15 +7,15 @@ angular.module('Menu.services')
 
 .factory('TableService', function(ProductService) {
     var t = [
-        { id: 1, order : false },
-        { id: 2, order : false },
-        { id: 3, order : false },
-        { id: 4, order : false },
-        { id: 5, order : false },
-        { id: 6, order : false },
-        { id: 7, order : false },
-        { id: 8, order : false },
-        { id: 9, order : false }
+        { id: 1, order : false, orderId : null },
+        { id: 2, order : false, orderId : null },
+        { id: 3, order : false, orderId : null },
+        { id: 4, order : false, orderId : null },
+        { id: 5, order : false, orderId : null },
+        { id: 6, order : false, orderId : null },
+        { id: 7, order : false, orderId : null },
+        { id: 8, order : false, orderId : null },
+        { id: 9, order : false, orderId : null }
     ];
     
     function _all() {
@@ -42,6 +42,7 @@ angular.module('Menu.services')
         var table = _get(id);
         if(table !== null) {
             table.order = false;
+            table.orderId = null;
         }
         
         return table;

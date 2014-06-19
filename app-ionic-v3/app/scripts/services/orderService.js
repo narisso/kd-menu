@@ -16,7 +16,19 @@ angular.module('Menu.services')
         });
     }
     
-    return {
-        create : _create
+    function _addItem(orderId, product) {
+        return $http.put(url + '/item', {
+            orderId : orderId,
+            code : product.id,
+            name : product.name,
+            price : product.price,
+            comment : product.comment,
+            status : 'waiting'
+        });
     }
+    
+    return {
+        create : _create,
+        addItem : _addItem
+    };
 });

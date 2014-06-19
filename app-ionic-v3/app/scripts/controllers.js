@@ -42,8 +42,8 @@ angular.module('Menu.controllers', [])
         $ionicLoading.show({ template : '<i class="icon ion-looping loading-icon"></i>' });
         
         OrderService.create(localStorage.userId, tableId)
-        .success(function() {
-            
+        .success(function(data) {
+            TableService.get(tableId).orderId = data.data._id;
             $ionicLoading.hide();
             $state.go('logged.newOrder', { tableId : tableId });
         })
@@ -55,8 +55,6 @@ angular.module('Menu.controllers', [])
                 okText : 'Cerrar'
             });
         });
-        
-        //$state.go('logged.newOrder', { tableId : tableId });
     };
     
 })
@@ -102,7 +100,7 @@ angular.module('Menu.controllers', [])
         $state.go('logged.productDetail', { productId : productId });
     };
 })
-.controller('ReviewOrderCtrl', function($scope, $state, $stateParams, TableService) {
+.controller('ReviewOrderCtrl', function($scope, $state, $stateParams, TableService, OrderService, $ionicLoading, $q) {
     console.log('review order');
     $scope.table = TableService.get($stateParams.tableId);
     
@@ -111,7 +109,19 @@ angular.module('Menu.controllers', [])
     };
     
     $scope.confirmOrder = function() {
-        //$state.go('logged.reviewOrder', { tableId : $scope.table.id } );
+        $ionicLoading.show({ template : '<i class="icon ion-looping loading-icon"></i>' });
+        
+        var requests = [];
+        for(var i = $scope.table.order.length - 1; i >= 0; i--) {
+            if($scope.table.order[i].order) {
+                requests.push(OrderService.addItem($scope.table.orderId, $scope.table.order[i]));
+            }
+        }
+        
+        $q.all(requests).then(function() {
+            $ionicLoading.hide();
+            $state.go('logged.status');
+        });
     };
     
 })
