@@ -34,24 +34,46 @@ angular.module('Menu.controllers', [])
 .controller('MainCtrl', function() {
     console.log('main');
 })
-.controller('StatusCtrl', function($scope, $state, TableService) {
+.controller('StatusCtrl', function($scope, $state, TableService, OrderService, $ionicLoading, $ionicPopup) {
     console.log('status');
     $scope.tables = TableService.all();
     $scope.newOrder = function(tableId) {
         console.log(tableId);
-        $state.go('logged.newOrder', { tableId : tableId });
+        $ionicLoading.show({ template : '<i class="icon ion-looping loading-icon"></i>' });
+        
+        OrderService.create(localStorage.userId, tableId)
+        .success(function() {
+            
+            $ionicLoading.hide();
+            $state.go('logged.newOrder', { tableId : tableId });
+        })
+        .error(function() {
+            $ionicLoading.hide();
+            $ionicPopup.alert({
+                title : 'Error',
+                subTitle : 'Ha ocurrido un error en la comunicación',
+                okText : 'Cerrar'
+            })
+        });
+        
+        //$state.go('logged.newOrder', { tableId : tableId });
     };
     
 })
-.controller('NewOrderCtrl', function($scope, $state, $stateParams, TableService, $log) {
+.controller('NewOrderCtrl', function($scope, $state, $stateParams, TableService, $ionicNavBarDelegate, $log) {
     console.log('new order');
+    $scope.log = $log.log;
     $scope.table = TableService.createOrder($stateParams.tableId);
-    $log.log($scope.table);
+    
     $scope.blockScreen= function() {
         console.log('block');
+        $ionicNavBarDelegate.showBar(false);
     };
     
-    $scope.log = $log;
+    $scope.unblockScreen = function() {
+        console.log('unblock');
+        $ionicNavBarDelegate.showBar(true);
+    };
     
     $scope.CreateHeader = function(cat) {
         var show = cat !== $scope.currentCat;
@@ -73,16 +95,28 @@ angular.module('Menu.controllers', [])
     };
     
     $scope.placeOrder = function() {
-        $state.go('logged.status');
+        $state.go('logged.reviewOrder', { tableId : $scope.table.id } );
     };
     
     $scope.productDetails = function(productId) {
         $state.go('logged.productDetail', { productId : productId });
     };
 })
+.controller('ReviewOrderCtrl', function($scope, $state, $stateParams, TableService) {
+    console.log('review order');
+    $scope.table = TableService.get($stateParams.tableId);
+    
+    $scope.editOrder = function() {
+        $state.go('logged.newOrder', { tableId : $scope.table.id } );
+    };
+    
+    $scope.confirmOrder = function() {
+        //$state.go('logged.reviewOrder', { tableId : $scope.table.id } );
+    };
+    
+})
 .controller('ProductDetailCtrl', function($scope, $state, $stateParams,ProductService) {
     console.log('product detail');
-    console.log($stateParams);
     $scope.p = ProductService.get($stateParams.productId);
     
 })

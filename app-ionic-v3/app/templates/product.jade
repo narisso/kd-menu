@@ -1,5 +1,9 @@
 ion-view.product(title='{{ p.name }}')
     ion-content
-        ion-slide-box
-            ion-slide(ng-repeat='i in p.img') 
-                img(src='images/menu/{{ i }}')
+        ion-slide-box.slider
+            ion-slide.slide(ng-repeat='i in p.img') 
+                img.picture(src='images/menu/{{ i }}')
+        
+        .info.padding
+            h1.name {{ p.name }}
+            p.desc {{ p.desc }}

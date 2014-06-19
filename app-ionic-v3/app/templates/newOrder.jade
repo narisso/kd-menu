@@ -1,6 +1,6 @@
 ion-nav-buttons(side='right')
     button.button(ng-click='blockScreen()')
-        | Bloquear
+        | Bloquear Pantalla
 
 ion-view.newOrder(title='Nueva orden')
     ion-content
@@ -14,10 +14,11 @@ ion-view.newOrder(title='Nueva orden')
                     | {{ p.cat }}
                 //, ng-init='showOrder = false'
                 ion-checkbox.product(type='item-text-wrap', ng-model='p.order', ng-click='$log.log(p.order)')
+                    .price {{ p.price | priceFilter : '$' }}
                     img.picture(src='images/menu/{{ p.img[0] }}', ng-show='!!p.img[0]')
                     h2.title {{ p.name }}
                     p.desc {{ p.desc }}
-                    .price {{ p.price | priceFilter : '$' }}
+                    
                     .more.enable-pointer-events(ng-click='productDetails({{ p.id }})')
                         i.icon.ion-chevron-right
                     
@@ -34,5 +35,6 @@ ion-view.newOrder(title='Nueva orden')
 ion-footer-bar.bar-stable
     button.button.button-assertive(ng-click='cancelOrder()')
         | Cancelar
-    button.button.button-balanced(ng-click='placeOrder()')
+    
+    button.button.button-energized(ng-click='placeOrder()')
         | Generar orden

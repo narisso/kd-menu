@@ -13,7 +13,7 @@ angular.module('Menu.services')
             name : 'Empanadas surtidas',
             desc : 'Deliciosas empanadas de camarón, queso y aceituna para disfrutar de a 3 personas.',
             price : '7990',
-            img : ['emapandas.jpg', 'empanadas2.png']
+            img : ['emapandas3.jpg', 'emapandas.jpg', 'empanadas2.png']
         },
         {
             id : 2,
@@ -21,7 +21,7 @@ angular.module('Menu.services')
             name : 'Filete a lo pobre',
             desc : 'Jugoso filete acompañado de papas fritas, cebolla y huevo.',
             price : '11990',
-            img : ['bistec.jpg']
+            img : ['filete3.jpg', 'bistec.jpg', 'filete2.jpg']
         },
         {
             id : 3,

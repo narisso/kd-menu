@@ -2,6 +2,10 @@
 .button-small .icon:before, .button-small.icon:before, .button-small.icon-left:before, .button-small.icon-right:before {
     margin-left: 6px;
 }
+
+i.loading-icon {
+	font-size: 60px;
+}
     
 .status {
     .table-item {   
@@ -77,6 +81,50 @@
 			
 			.button-small .icon:before, .button-small.icon:before, .button-small.icon-left:before, .button-small.icon-right:before {
 				margin-left: 0px;
+			}
+		}
+	}
+}
+
+.product {
+	.info {
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		background-color: #222222;
+		color: #ffffff;
+		opacity: 0.8;
+		
+		.name {
+			color: #eeeeee;
+		}
+	}
+	.slider {
+		.slider-pager {
+			position: absolute;
+			top: 20px;
+			bottom: auto;
+			z-index: 1;
+			width: 100%;
+			height: 15px;
+			text-align: center;
+			
+			.slider-pager-page {
+				color: #ffffff;
+			}
+		}
+		
+		background-color: #c1c2c3;
+		
+		.slide {
+			text-align: center;
+			vertical-align: middle;
+			width: 100%;
+			
+			.picture {
+				height: 100%;
+				margin-bottom: -5px;
 			}
 		}
 	}
