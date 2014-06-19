@@ -53,7 +53,7 @@ angular.module('Menu.controllers', [])
                 title : 'Error',
                 subTitle : 'Ha ocurrido un error en la comunicación',
                 okText : 'Cerrar'
-            })
+            });
         });
         
         //$state.go('logged.newOrder', { tableId : tableId });
