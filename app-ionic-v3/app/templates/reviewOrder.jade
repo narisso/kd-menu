@@ -2,12 +2,15 @@ ion-view.reviewOrder(title='Confirmar orden')
     ion-content
         ion-list
             ion-item(ng-repeat='p in table.order | filter : { order : true }')
-                    h2 
-                        | {{ p.name }}
-                    p
-                        | {{ p.comment }}
-                    span.badge.badge-dark
-                        | {{ p.qty }}
+                div.row
+                    div.col.col-75
+                        h2 
+                            | {{ p.name }}
+                        p
+                            | {{ p.comment }}
+                    div.col
+                        span.badge.badge-dark
+                            | {{ p.qty }}
         
 ion-footer-bar.bar-stable
     button.button.button-assertive(ng-click='editOrder()')
