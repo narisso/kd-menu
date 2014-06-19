@@ -1,16 +1,22 @@
 ion-view.reviewOrder(title='Confirmar orden')
     ion-content
         ion-list
-            ion-item(ng-repeat='p in table.order | filter : { order : true }')
-                div.row
-                    div.col.col-75
-                        h2 
-                            | {{ p.name }}
-                        p
-                            | {{ p.comment }}
-                    div.col
-                        span.badge.badge-dark
-                            | {{ p.qty }}
+            ion-item.reviewOrder(ng-repeat='p in table.order | filter : { order : true }')
+                div.row.product
+                    div.col.col-10.col-center
+                        h1.quantity.title {{ p.qty }}
+                    div.col.col-10
+                        img.picture(ng-src="images/menu/{{ p.img[0] }}")
+                    div.col.col-70
+                        h2.title {{ p.name }}
+                        p.desc {{ p.desc }}
+                    div.col.col-10.col-center
+                        span.item-note.price {{ p.qty * p.price | priceFilter : '$' }}
+                    
+            ion-item.item.reviewOrder
+              | Total
+              span.item-note.price
+                {{ getTotal() | priceFilter : '$' }}
         
 ion-footer-bar.bar-stable
     button.button.button-assertive(ng-click='editOrder()')

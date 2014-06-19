@@ -22,6 +22,20 @@ i.loading-icon {
     }
 }
 
+.reviewOrder {
+	.product {
+		.quantity {
+			text-align: center;
+		}
+		.picture {
+			width: 100%;
+		}
+		.price {
+			font-size: 25px;
+		}
+	}
+}
+
 .newOrder {
 	.product {
 		min-height: 100px;

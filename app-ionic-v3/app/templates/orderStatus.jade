@@ -9,11 +9,11 @@ ion-view.orderStatus(title='Resumen')
             | Precio
 
       ion-item.item.item-thumbnail-left(ng-repeat='p in table.order | filter: { order: true }')
-          img.picture(ng-src="images/menu/{{ p.img[0] }}")
-          span.item-note.price
-            {{ p.qty * p.price | priceFilter : '$' }}
-          h2.title {{ p.qty }}  {{ p.name }}
-          p.desc {{ p.desc }}
+        img.picture(ng-src="images/menu/{{ p.img[0] }}")
+        span.item-note.price
+          {{ p.qty * p.price | priceFilter : '$' }}
+        h2.title {{ p.name }}
+        p.desc {{ p.desc }}
 
         ion-item.item.item-divider
           | Total
