@@ -68,10 +68,23 @@ angular.module('Menu.controllers', [])
         }
     };
 })
-.controller('OrderStatusCtrl', function($scope, $state, $stateParams, TableService, $log){    
+.controller('OrderStatusCtrl', function($scope, $state, $stateParams, TableService, $log){
     $log.log('order status');
     //$scope.table = TableService.get($stateParams.tableId);
     $scope.table = {'id':1,'order':[{'id':1,'cat':'Aperitivo','name':'Empanadas surtidas','desc':'Deliciosas empanadas de camarón, queso y aceituna para disfrutar de a 3 personas.','price':'7990','img':['emapandas.jpg','empanadas2.png'],'$$hashKey':'00A','order':true,'qty':3,'comment':'Comment'},{'id':2,'cat':'Plato Principal','name':'Filete a lo pobre','desc':'Jugoso filete acompañado de papas fritas, cebolla y huevo.','price':'11990','img':['bistec.jpg','bistec.jpg','filete2.jpg'],'$$hashKey':'00B','order':true,'qty':2,'comment':''},{'id':3,'cat':'Plato Principal','name':'Tallarines a la Bolognesa','desc':'La más exquisita pasta fresca servida con salsa de tomates y carne.','price':'6990','img':['tallarines.jpg'],'$$hashKey':'00C','order':false,'qty':1,'comment':''},{'id':4,'cat':'Postre','name':'Helado Artesanal','desc':'3 bolitas de helado artesanal. Sabores disponibles: Frambuesa, frutilla, vainilla y piña.','price':'2990','img':['helado.jpg'],'$$hashKey':'00D','order':false,'qty':1,'comment':''},{'id':5,'cat':'Bebidas','name':'Coca-Cola','desc':'','price':'1200','img':['cocacola.jpg'],'$$hashKey':'00E','order':false,'qty':1,'comment':''},{'id':6,'cat':'Bebidas','name':'Coca-Cola Light','desc':'Brownie relleno con chocolate fundido','price':'4590','img':['cocacolalight.png'],'$$hashKey':'00F','order':false,'qty':1,'comment':''},{'id':7,'cat':'Bebidas','name':'Jugo de Frambuesa','desc':'Jugo natural','price':'1900','img':['frambuesa.jpg'],'$$hashKey':'00G','order':false,'qty':1,'comment':''},{'id':8,'cat':'Cervezas','name':'Cristal 300cc','desc':'','price':'1500','img':['cristal.jpg'],'$$hashKey':'00H','order':false,'qty':1,'comment':''},{'id':9,'cat':'Cervezas','name':'Cristal 500cc','desc':'','price':'1990','img':['cristal.jpg'],'$$hashKey':'00I','order':false,'qty':1,'comment':''},{'id':10,'cat':'Cervezas','name':'Austral Calafate','desc':'','price':'2600','img':['austral.jpg'],'$$hashKey':'00J','order':false,'qty':1,'comment':''},{'id':11,'cat':'Cervezas','name':'Schop Kunstmann Torobayo','desc':'','price':'2800','img':['kunstmann.jpg'],'$$hashKey':'00K','order':false,'qty':1,'comment':''}],'orderId':null};
+
+    $scope.getTotal = function(){
+        var total = 0;
+        $scope.table.order.forEach(function(product){
+            total += product.qty * product.price;
+        });
+        return total;
+    };
+
+
+    $scope.goBack = function(){
+        $state.go('logged.status');
+    };
 })
 .controller('NewOrderCtrl', function($scope, $state, $stateParams, TableService, $ionicNavBarDelegate, $log) {
     console.log('new order');

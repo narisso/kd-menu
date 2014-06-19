@@ -3,12 +3,23 @@ ion-view.orderStatus(title='Resumen')
     div.card
       ion-item.item.item-thumbnail-left(ng-repeat='p in table.order | filter: { order: true }')
           img.picture(ng-src="images/menu/{{ p.img[0] }}")
-          {{ p.name }}
+          span.item-note.price
+            {{ p.qty * p.price | priceFilter : '$' }}
+          h2.title {{ p.qty }}  {{ p.name }}
+          p.desc {{ p.desc }}
+
+        ion-item.item.item-divider
+          | Total
+          span.item-note.price
+            {{ getTotal() | priceFilter : '$' }}
+
+
+
 
 
 ion-footer-bar.bar-stable
-  button.button.button-assertive(ng-click='cancelOrder()')
-    | Cancelar
+  button.button.button-assertive(ng-click='goBack()')
+    | Atrás
 
   button.button.button-energized(ng-click='placeOrder()')
     | Generar orden
