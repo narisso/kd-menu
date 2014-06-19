@@ -156,5 +156,7 @@ angular.module('Menu.controllers', [])
             $state.go('logged.main');
         }
     };
+
+
     
 });
