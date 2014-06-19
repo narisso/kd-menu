@@ -1,6 +1,13 @@
-ion-view.newOrder(title='Nueva orden')
+ion-view.reviewOrder(title='Confirmar orden')
     ion-content
-        h1 hola
+        ion-list
+            ion-item(ng-repeat='p in table.order | filter : { order : true }')
+                    h2 
+                        | {{ p.name }}
+                    p
+                        | {{ p.comment }}
+                    span.badge.badge-dark
+                        | {{ p.qty }}
         
 ion-footer-bar.bar-stable
     button.button.button-assertive(ng-click='editOrder()')
