@@ -1,0 +1,7 @@
+ion-view.orderStatus(title='Resumen')
+  ion-content
+    div.card
+      ion-item.item.item-thumbnail-left(ng-repeat='p in table.order | filter: { order: true }')
+        img.picture(src="images/menu/{{ p.img[0] }}")
+          {{ p.name }}
+        

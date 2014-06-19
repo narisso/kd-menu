@@ -37,6 +37,12 @@ angular.module('Menu', ['ionic', 'Menu.controllers', 'Menu.services', 'Menu.filt
         templateUrl: 'templates/reviewOrder.html',
         controller: 'ReviewOrderCtrl'
     })
+    .state('logged.orderStatus', {
+        url: '/orderStatus/:tableId',
+        templateUrl: 'templates/orderStatus.html',
+        controller: 'OrderStatusCtrl'
+
+    })
     .state('logged.productDetail', {
         url: '/product/:productId',
         templateUrl: 'templates/product.html',
