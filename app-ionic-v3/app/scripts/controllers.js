@@ -130,7 +130,7 @@ angular.module('Menu.controllers', [])
     $scope.p = ProductService.get($stateParams.productId);
     
 })
-.controller('LoginCtrl', function($scope, $state,ScanService,$ionicPopup) {
+.controller('LoginCtrl', function($scope, $state) {
     console.log('login');
     
     delete localStorage.userId;
@@ -142,29 +142,6 @@ angular.module('Menu.controllers', [])
         }
     };
 
-    $scope.barcodeStart = function() {
-        ScanService.scan(
-        function(result) {
-            if (result.cancelled) {
-                $ionicModal.fromTemplate('').show().then(function() {
-                    $ionicPopup.alert({
-                        title: 'QR Scan Cancelled',
-                        template: 'You cancelled it!'
-                    });
-                });
-            }
-            else {
-                $ionicPopup.alert({
-                    template: 'Result: ' + result.text
-                });
-            }
-        },
-        function(error) {
-            $ionicPopup.alert({
-                    title: 'Unable to scan the QR code',
-                    template: 'Too bad, something went wrong.'
-            });
-        });
-    };
+
     
 });
