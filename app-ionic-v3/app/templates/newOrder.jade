@@ -21,16 +21,20 @@ ion-view.newOrder(title='Nueva orden')
                     
                     .more.enable-pointer-events(ng-click='productDetails({{ p.id }})')
                         i.icon.ion-chevron-right
-                    
+            
                 ion-item.order-product(ng-show='p.order')
-                    .quantity
-                        button.quantity-button.button.button-small.icon.ion-minus-round.button-assertive(ng-click='p.qty = p.qty - 1 > 0 ? p.qty - 1 : 0; p.order = p.qty !== 0; ')
-                        input.quantity-number.disable-pointer-events(type='number', value='1', ng-model='p.qty')
-                        button.quantity-button.button.button-small.button-balanced(ng-click='p.qty = p.qty + 1')
-                            i.icon.ion-plus-round
-                    
-                    .details(ng-show='p.order')
-                        textarea(placeholder='Comentarios', ng-model='p.comment')
+                    div.row
+                        div.col.col-90
+                            .details(ng-show='p.order')
+                                textarea.details(placeholder='Comentarios', ng-model='p.comment')
+                        div.col.col-10
+                            .quantity
+                                button.quantity-button.button.button-small.icon.ion-minus-round.button-assertive(ng-click='p.qty = p.qty - 1 > 0 ? p.qty - 1 : 0; p.order = p.qty !== 0; ')
+                                div.quantity-number-wrapper
+                                    input.quantity-number.disable-pointer-events(type='number', value='1', ng-model='p.qty')
+                                button.quantity-button.button.button-small.button-balanced(ng-click='p.qty = p.qty + 1')
+                                    i.icon.ion-plus-round
+
                         
 ion-footer-bar.bar-stable
     button.button.button-assertive(ng-click='cancelOrder()')

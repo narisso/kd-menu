@@ -3,9 +3,7 @@ ion-view.orderStatus(title='Resumen')
     div.card
       ion-item.item.item-thumbnail-left(ng-repeat='p in table.order | filter: { order: true }')
           img.picture(ng-src="images/menu/{{ p.img[0] }}")
-          {{ p.name }}
-    div.card
-      
+          {{ p.name }}      
 
 
 ion-footer-bar.bar-stable
