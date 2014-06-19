@@ -177,6 +177,17 @@ angular.module('Menu.controllers', [])
             $state.go('logged.status');
         });
     };
+
+    $scope.getTotal = function(){
+        var total = 0;
+        $scope.table.order.forEach(function(product){
+            if(product.order)
+            {
+                total += product.qty * product.price;
+            }
+        });
+        return total;
+    };
     
 })
 .controller('ProductDetailCtrl', function($scope, $state, $stateParams,ProductService) {
